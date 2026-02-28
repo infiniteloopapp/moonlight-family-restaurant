@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,16 +8,16 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
   :root {
-    --primary-gradient-start: #006400; /* DarkGreen */
-    --primary-gradient-end: #002200;   /* Very dark greenish black */
-    --secondary-gradient-start: #004000; /* Dark Green */
-    --secondary-gradient-end: #001100;   /* Very dark black-green */
-    --glass-bg: rgba(0 0 0 / 0.15);
-    --glass-border: rgba(0 128 0 / 0.3);
-    --text-light: #e0f2f1;  /* light teal/blue-green for better readability */
+    --primary-gradient-start: #add8e6; /* LightBlue */
+    --primary-gradient-end: #87ceeb;   /* SkyBlue */
+    --secondary-gradient-start: #a9cfe7; /* Light Blue variant */
+    --secondary-gradient-end: #d0e7fb;   /* Very light blue */
+    --glass-bg: rgba(173 216 230 / 0.15);
+    --glass-border: rgba(135 206 235 / 0.4);
+    --text-light: #004080;  /* Dark blue for readability on light backgrounds */
     --text-dark: #000000;
-    --accent-color: #008000; /* Green */
-    --shadow-color: rgba(0, 0, 0, 0.65);
+    --accent-color: #1e90ff; /* DodgerBlue */
+    --shadow-color: rgba(0, 102, 204, 0.4);
     --transition-duration: 0.4s;
   }
   html {
@@ -25,8 +26,8 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #000000;
-    color: var(--text-light);
+    background: #e8f4fd;
+    color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     overflow-x: hidden;
@@ -39,7 +40,7 @@
   }
   a:hover,
   a:focus {
-    color: #004d00; /* Darker green on hover */
+    color: #104e8b; /* Darker dodger blue on hover */
     outline: none;
   }
   .container {
@@ -50,7 +51,7 @@
   header {
     position: sticky;
     top: 0;
-    background: #002200cc;
+    background: #d7ecfccc;
     backdrop-filter: saturate(180%) blur(14px);
     z-index: 999;
     box-shadow: 0 0 15px var(--shadow-color);
@@ -69,7 +70,7 @@
   .logo {
     font-weight: 700;
     font-size: 1.6rem;
-    color: var(--text-light);
+    color: var(--primary-gradient-end);
     letter-spacing: 2px;
     user-select: none;
     padding: 0.2rem 0.5rem;
@@ -89,13 +90,13 @@
     margin: 0;
   }
   nav ul li a {
-    color: var(--text-light);
+    color: var(--primary-gradient-end);
     font-weight: 600;
     font-size: 1.1rem;
     padding: 0.4rem 0.2rem;
     position: relative;
     letter-spacing: 0.02em;
-    text-shadow: 0 0 3px #003300;
+    text-shadow: 0 0 3px #7bb6f7;
   }
   nav ul li a::after {
     content: '';
@@ -123,7 +124,7 @@
     min-height: 520px;
     display: flex;
     align-items: center;
-    color: var(--text-light);
+    color: var(--primary-gradient-end);
     overflow: hidden;
     width: 100%;
     padding-left: 2rem;
@@ -134,7 +135,7 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background-size: cover;
     background-position: center center;
-    animation: fade-slide 20s infinite;
+    animation: fade-slide 28s infinite;
     opacity: 0;
     transition: opacity 1.4s ease;
   }
@@ -155,11 +156,11 @@
     max-width: 720px;
     padding: 2rem 3rem;
     z-index: 2;
-    background: linear-gradient(135deg, rgba(0,100,0,0.85), rgba(0,51,0,0.9));
+    background: linear-gradient(135deg, rgba(173,216,230,0.9), rgba(135,206,235,0.9));
     border-radius: 14px;
-    box-shadow: 0 6px 28px rgba(0, 50, 0, 0.8);
-    color: var(--text-light);
-    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+    box-shadow: 0 6px 28px rgba(30, 144, 255, 0.7);
+    color: var(--text-dark);
+    text-shadow: 0 2px 5px rgba(255,255,255,0.75);
   }
   .hero-content h1 {
     font-size: 3.8rem;
@@ -182,13 +183,13 @@
     font-size: 1.2rem;
     color: #111;
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0,128,0,0.6);
+    box-shadow: 0 6px 20px rgba(30,144,255,0.75);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   .hero-content button.cta-btn:hover,
   .hero-content button.cta-btn:focus {
-    background: #004d00;
-    box-shadow: 0 8px 24px rgba(0,77,0,0.85);
+    background: #104e8b;
+    box-shadow: 0 8px 24px rgba(16,78,139,0.9);
     outline: none;
   }
   /* Google rating */
@@ -202,7 +203,7 @@
     gap: 0.5rem;
   }
   .stars {
-    color: #00b300;
+    color: #1e90ff;
     font-size: 1.6rem;
     line-height: 1;
   }
@@ -219,9 +220,14 @@
     margin-bottom: 1.6rem;
     text-align: center;
     color: var(--secondary-gradient-end);
-    text-shadow: 0 0 10px #001100;
+    text-shadow: 0 0 10px #a4bee3;
   }
   /* Services cards */
+  #services {
+    background: linear-gradient(135deg, #cde6fb 0%, #e6f2fd 50%, #d0e8fc 100%);
+    border-radius: 24px;
+    box-shadow: 0 8px 30px rgba(30,144,255,0.18);
+  }
   .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
@@ -232,8 +238,8 @@
     border: 1.5px solid var(--glass-border);
     border-radius: 20px;
     padding: 2.75rem 2.5rem;
-    box-shadow: 0 10px 26px rgba(0, 100, 0, 0.3);
-    color: var(--text-light);
+    box-shadow: 0 10px 26px rgba(30, 144, 255, 0.3);
+    color: var(--text-dark);
     backdrop-filter: saturate(180%) blur(12px);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
     user-select: none;
@@ -241,7 +247,7 @@
   .card:hover,
   .card:focus-within {
     transform: translateY(-7px);
-    box-shadow: 0 15px 45px rgba(0, 128, 0, 0.6);
+    box-shadow: 0 15px 45px rgba(30, 144, 255, 0.6);
     outline: none;
   }
   .card h3 {
@@ -250,13 +256,13 @@
     margin-bottom: 1rem;
     font-weight: 700;
     color: var(--accent-color);
-    text-shadow: 0 0 5px #006400;
+    text-shadow: 0 0 6px #1e90ff88;
   }
   .card p {
     font-size: 1.1rem;
     line-height: 1.6;
     font-weight: 500;
-    color: #a6d2a6cc;
+    color: #104e8bcc;
   }
   /* Testimonials */
   .testimonials-wrapper {
@@ -271,8 +277,8 @@
     border-radius: 20px;
     padding: 2.6rem 2.8rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 12px 34px rgba(0, 100, 0, 0.15);
-    color: var(--text-light);
+    box-shadow: 0 12px 34px rgba(30, 144, 255, 0.15);
+    color: var(--text-dark);
     backdrop-filter: saturate(180%) blur(15px);
     font-style: italic;
     position: relative;
@@ -281,7 +287,7 @@
     line-height: 1.5;
   }
   .testimonial:hover {
-    box-shadow: 0 18px 48px rgba(0, 128, 0, 0.35);
+    box-shadow: 0 18px 48px rgba(30, 144, 255, 0.35);
   }
   .testimonial::before {
     content: '“';
@@ -293,35 +299,35 @@
     color: var(--accent-color);
     font-weight: 900;
     user-select: none;
-    text-shadow: 0 0 6px #008000cc;
+    text-shadow: 0 0 6px #1e90ffcc;
   }
   .testimonial p {
     margin: 0 0 1.6rem 1.4rem;
-    color: #d0f0d0cc;
+    color: #1056a0cc;
   }
   .testimonial cite {
     font-weight: 700;
     font-style: normal;
     color: var(--accent-color);
-    text-shadow: 0 0 4px #004d00aa;
+    text-shadow: 0 0 4px #104e8baa;
   }
   /* Call to Action Section */
   .call-to-action {
     background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
-    color: #b9f6ca;
+    color: #003366;
     text-align: center;
     padding: 3.5rem 2rem;
     border-radius: 20px;
     max-width: 100%;
     margin: 2rem auto 4rem auto;
-    box-shadow: 0 14px 35px rgba(0, 100, 0, 0.85);
+    box-shadow: 0 14px 35px rgba(30,144,255,0.85);
     width: 100%;
   }
   .call-to-action h3 {
     font-size: 2.5rem;
     margin-bottom: 1.2rem;
     font-weight: 700;
-    text-shadow: 0 0 8px #004d00cc;
+    text-shadow: 0 0 8px #1e90ffcc;
   }
   .call-to-action button {
     background: var(--accent-color);
@@ -332,20 +338,20 @@
     color: #111;
     font-size: 1.3rem;
     cursor: pointer;
-    box-shadow: 0 9px 26px rgba(0,128,0,0.7);
+    box-shadow: 0 9px 26px rgba(30,144,255,0.7);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   .call-to-action button:hover,
   .call-to-action button:focus {
-    background: #004d00;
-    box-shadow: 0 12px 34px rgba(0,77,0,0.95);
+    background: #104e8b;
+    box-shadow: 0 12px 34px rgba(16,78,139,0.95);
     outline: none;
   }
   /* Contact Section */
   #contact {
-    background: #001900;
+    background: #c4d9f9;
     padding-bottom: 5rem;
-    color: var(--text-light);
+    color: var(--text-dark);
   }
   .contact-container {
     display: flex;
@@ -360,20 +366,20 @@
   .contact-info, .contact-form-wrapper {
     flex: 1 1 420px;
     min-width: 320px;
-    color: var(--text-light);
+    color: var(--text-dark);
   }
   .contact-info h3 {
     font-weight: 800;
     color: var(--accent-color);
     margin-bottom: 1.8rem;
     font-size: 2.2rem;
-    text-shadow: 0 0 6px #006400aa;
+    text-shadow: 0 0 6px #63abf5cc;
   }
   .contact-info p {
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0.8rem 0;
-    color: #a5d6a7cc;
+    color: #1056a7cc;
     user-select: text;
     line-height: 1.5;
   }
@@ -381,7 +387,7 @@
     user-select: text;
     color: var(--accent-color);
     font-weight: 700;
-    text-shadow: 0 0 3px #004d0044;
+    text-shadow: 0 0 3px #104e8b44;
   }
   iframe.map {
     border: none;
@@ -389,22 +395,22 @@
     width: 100%;
     height: 270px;
     border-radius: 20px;
-    box-shadow: 0 8px 38px rgba(0, 128, 0, 0.7);
+    box-shadow: 0 8px 38px rgba(30,144,255,0.7);
     transition: box-shadow 0.3s ease;
   }
   iframe.map:hover,
   iframe.map:focus-visible {
-    box-shadow: 0 12px 48px rgba(0, 200, 0, 0.85);
+    box-shadow: 0 12px 48px rgba(16,78,139,0.85);
     outline: none;
   }
   form#contact-form {
-    background: #003300;
+    background: #add8e6;
     padding: 2.6rem 3rem;
     border-radius: 20px;
-    box-shadow: 0 14px 38px rgba(0, 100, 0, 0.7);
+    box-shadow: 0 14px 38px rgba(30,144,255,0.7);
     display: flex;
     flex-direction: column;
-    color: var(--text-light);
+    color: var(--text-dark);
     font-weight: 600;
     position: relative;
   }
@@ -413,60 +419,60 @@
     margin-bottom: 0.5rem;
     font-size: 1.05rem;
     color: var(--accent-color);
-    text-shadow: 0 0 5px #004d0077;
+    text-shadow: 0 0 5px #4682b466;
   }
   form#contact-form input,
   form#contact-form textarea {
     font-family: 'Poppins', sans-serif;
     border-radius: 12px;
-    border: 2px solid #004d00;
+    border: 2px solid #87ceeb;
     font-size: 1.15rem;
     padding: 1rem 1.2rem;
     margin-bottom: 1.8rem;
     resize: vertical;
     transition: border-color 0.3s ease;
-    color: #d0f0d0;
-    background: #003f00;
-    box-shadow: inset 0 0 6px #006600aa;
+    color: #104e8b;
+    background: #d3e9fb;
+    box-shadow: inset 0 0 6px #5dade2aa;
   }
   form#contact-form input::placeholder,
   form#contact-form textarea::placeholder {
-    color: #a6d5a6;
+    color: #7faedb;
     opacity: 0.9;
   }
   form#contact-form input:focus,
   form#contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: #005000;
+    background: #b0d1fc;
     box-shadow: 0 0 12px var(--accent-color);
-    color: #e0f7e0;
+    color: #084a8f;
   }
   form#contact-form button {
     cursor: pointer;
     background: var(--primary-gradient-end);
-    color: #d0f0d0;
+    color: #104e8b;
     font-weight: 800;
     border: none;
     border-radius: 48px;
     padding: 1.2rem 2.2rem;
     font-size: 1.25rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 22px rgba(0, 128, 0, 0.7);
+    box-shadow: 0 8px 22px rgba(30,144,255,0.7);
     align-self: flex-start;
     user-select: none;
     position: relative;
   }
   form#contact-form button:hover,
   form#contact-form button:focus {
-    background: #004a00cc;
-    box-shadow: 0 12px 34px rgba(0, 77, 0, 0.9);
+    background: #104e8bcc;
+    box-shadow: 0 12px 34px rgba(16,78,139,0.9);
     outline: none;
   }
 
   /* Loader Spinner */
   .loader {
-    border: 3px solid rgba(0, 128, 0, 0.2);
+    border: 3px solid rgba(30, 144, 255, 0.2);
     border-top: 3px solid var(--accent-color);
     border-radius: 50%;
     width: 20px;
@@ -483,15 +489,15 @@
 
   /* Footer */
   footer {
-    background: #001100;
-    color: #4caf5099;
+    background: #a2caf7;
+    color: #104e8bcc;
     text-align: center;
     padding: 2rem 1rem;
     font-size: 1rem;
     font-weight: 600;
     user-select: none;
     width: 100%;
-    text-shadow: 0 0 4px #004400aa;
+    text-shadow: 0 0 4px #4682b4aa;
   }
   /* Responsive */
   @media (max-width: 700px) {
@@ -541,7 +547,7 @@
 <header>
   <nav aria-label="Primary Navigation">
     <div class="logo" tabindex="0">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/OOjs_UI_icon_food.svg/256px-OOjs_UI_icon_food.svg.png" alt="Request Logo" /> Moonlight Family Restaurant
+      <img src="https://lpsu.untrek.com/wp-content/uploads/2025/01/logo.png" alt="Moonlight Family Restaurant Logo" /> Moonlight Family Restaurant
     </div>
     <ul>
       <li><a href="#about" tabindex="0">About Us</a></li>
@@ -555,6 +561,8 @@
     <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1533777324565-a04df0e527b7?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509057199576-632a47484ece?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="hero-content" role="banner">
       <h1>Welcome to Moonlight Family Restaurant</h1>
       <p>Delight in warm family dining with delicious dishes & cozy ambiance.</p>
@@ -566,7 +574,7 @@
   </section>
   <section id="about" aria-labelledby="about-title">
     <h2 id="about-title" class="section-title">About Us</h2>
-    <div class="container" style="max-width:900px; text-align:center; color:#a6d5a6cc; font-weight: 600;">
+    <div class="container" style="max-width:900px; text-align:center; color:#104e8bcc; font-weight: 600;">
       <p>Moonlight Family Restaurant is your cozy neighborhood dining spot in Glendale, CA, where we serve heartwarming meals crafted with love. Our mission is to bring families together with homemade classics and modern favorites in a comfortable atmosphere that feels like home.</p>
     </div>
   </section>
@@ -620,7 +628,7 @@
       <div class="contact-info" aria-label="Business contact details">
         <h3>Moonlight Family Restaurant</h3>
         <p><strong>Address:</strong> 1022 E Chevy Chase Dr unit d, Glendale, CA 91205</p>
-        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#336633;">(Not Provided)</a></p>
+        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#104e8b;">(Not Provided)</a></p>
         <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com">info@yourbusiness.com</a></p>
         <iframe class="map" srcdoc="<style>html,body{margin:0;padding:0;height:100%;}#map{height:100%;width:100%;}</style>
           <div id='map'>
@@ -636,7 +644,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Write your message here..." rows="4" required></textarea>
           <button type="submit" aria-label="Send message">Send Message<span class="loader" aria-hidden="true" style="display:none;"></span></button>
-          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#338833; font-weight:700;"></p>
+          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#104e8b; font-weight:700;"></p>
         </form>
       </div>
     </div>
@@ -677,7 +685,7 @@
     loaderSpan.style.display = 'inline-block';
     contactStatus.textContent = '';
     setTimeout(() => {
-      contactStatus.style.color = '#338833';
+      contactStatus.style.color = '#104e8b';
       contactStatus.textContent = 'Thank you for your message! We will get back to you soon.';
       submitButton.disabled = false;
       loaderSpan.style.display = 'none';
@@ -800,7 +808,7 @@
         style: {
           position: 'fixed',
           inset: 0,
-          backgroundColor: 'rgba(0,51,0,0.65)',
+          backgroundColor: 'rgba(173,216,230,0.65)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -820,11 +828,11 @@
           style: {
             width: '70%',
             maxWidth: 600,
-            backgroundColor: 'rgba(0 0 0 / 0.97)',
+            backgroundColor: 'rgba(255 255 255 / 0.97)',
             borderRadius: 30,
             padding: 30,
-            boxShadow: '0 4px 40px rgba(0,100,0,0.35)',
-            color: '#90ee90',
+            boxShadow: '0 4px 40px rgba(30,144,255,0.35)',
+            color: '#004080',
             fontFamily: "'Poppins', sans-serif",
             userSelect: 'text',
             maxHeight: '95vh',
@@ -845,12 +853,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'buy' ? '#e0f2f1' : '#004400',
-                background: tab === 'buy' ? 'linear-gradient(90deg, #006400, #002200)' : 'transparent',
+                color: tab === 'buy' ? '#104e8b' : '#7fb4e6',
+                background: tab === 'buy' ? '#d0e8fc' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'buy' ? '0 5px 15px rgba(0,128,0,0.6)' : 'none',
+                boxShadow: tab === 'buy' ? '0 5px 15px rgba(30,144,255,0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'BUY SITE'),
@@ -862,12 +870,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'request' ? '#e0f2f1' : '#004400',
-                background: tab === 'request' ? 'linear-gradient(90deg, #006400, #002200)' : 'transparent',
+                color: tab === 'request' ? '#104e8b' : '#7fb4e6',
+                background: tab === 'request' ? '#d0e8fc' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'request' ? '0 5px 15px rgba(0,128,0,0.6)' : 'none',
+                boxShadow: tab === 'request' ? '0 5px 15px rgba(30,144,255,0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'REQUEST CHANGES')
@@ -879,7 +887,7 @@
               justifyContent: 'center',
               alignItems: 'center',
               minHeight: 180,
-              color: '#004400',
+              color: '#104e8b',
               fontWeight: 600,
               fontSize: '1.4rem'
             }
@@ -889,17 +897,17 @@
             rel: 'noopener noreferrer',
             style: {
               padding: '1rem 3rem',
-              background: 'var(--accent-color)',
+              background: '#1e90ff',
               color: '#111',
               textDecoration: 'none',
               borderRadius: 40,
               fontWeight: 700,
-              boxShadow: '0 8px 15px rgba(0,128,0,0.8)',
+              boxShadow: '0 8px 15px rgba(30,144,255,0.8)',
               userSelect: 'none',
               transition: 'background-color 0.3s ease'
             },
-            onMouseOver: e => e.currentTarget.style.backgroundColor = '#004d00',
-            onMouseOut: e => e.currentTarget.style.backgroundColor = 'var(--accent-color)'
+            onMouseOver: e => e.currentTarget.style.backgroundColor = '#104e8b',
+            onMouseOut: e => e.currentTarget.style.backgroundColor = '#1e90ff'
           }, 'Buy Site')) :
           e('form', {
             onSubmit: handleSubmit,
@@ -923,7 +931,7 @@
               required: true,
               value: formData.businessName,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #004400', background: '#002200', color: '#a6d5a6'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #87ceeb', background: '#d0e8fc', color: '#104e8b'}
             }),
             e('label', {htmlFor: 'modal-logo'}, 'Logo (.jpg or .png) - Enter link or base64 string'),
             e('textarea', {
@@ -933,7 +941,7 @@
               rows: 2,
               value: formData.logo,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #004400', resize: 'vertical', background: '#002200', color: '#a6d5a6'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #87ceeb', resize: 'vertical', background: '#d0e8fc', color: '#104e8b'}
             }),
             e('label', {htmlFor: 'modal-colorChoice'}, 'Colors'),
             e('input', {
@@ -943,7 +951,7 @@
               placeholder: 'Your preferred color scheme',
               value: formData.colorChoice,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #004400', background: '#002200', color: '#a6d5a6'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #87ceeb', background: '#d0e8fc', color: '#104e8b'}
             }),
             e('label', {htmlFor: 'modal-changes'}, 'Changes'),
             e('textarea', {
@@ -954,22 +962,22 @@
               required: true,
               value: formData.changes,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #004400', resize: 'vertical', background: '#002200', color: '#a6d5a6'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #87ceeb', resize: 'vertical', background: '#d0e8fc', color: '#104e8b'}
             }),
             e('button', {
               type: 'submit',
               disabled: submitting,
               style: {
                 marginTop: 8,
-                backgroundColor: '#002200',
-                color: '#a6d5a6',
+                backgroundColor: '#d0e8fc',
+                color: '#104e8b',
                 padding: '0.9rem 2rem',
                 fontWeight: '700',
                 borderRadius: 30,
                 border: 'none',
                 cursor: submitting ? 'wait' : 'pointer',
                 fontSize: '1.1rem',
-                boxShadow: '0 5px 15px rgba(0,128,0,0.6)',
+                boxShadow: '0 5px 15px rgba(30,144,255,0.6)',
                 transition: 'background-color 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -978,15 +986,15 @@
                 userSelect: 'none'
               },
               onMouseOver: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#004400';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#104e8b';
               },
               onMouseOut: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#002200';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#d0e8fc';
               }
-            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(0,128,0,0.2)', borderTop:'3px solid #008000', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
+            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(30,144,255,0.2)', borderTop:'3px solid #1e90ff', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
             responseMsg && e('p', {
               role: 'alert',
-              style: {color: '#338833', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
+              style: {color: '#104e8b', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
             }, responseMsg)
           )
         )
@@ -998,3 +1006,4 @@
 </script>
 </body>
 </html>
+```
