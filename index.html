@@ -7,16 +7,19 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
   :root {
-    --primary-gradient-start: #ffafcc; /* Pink variant */
-    --primary-gradient-end: #f72585;   /* Vivid pink */
-    --secondary-gradient-start: #ffc8dd; /* Light pink */
-    --secondary-gradient-end: #ffb3c1;   /* Soft pink */
-    --glass-bg: rgba(255 182 193 / 0.15);
-    --glass-border: rgba(247 37 133 / 0.4);
-    --text-light: #7a003c;  /* Dark pink for readability on light backgrounds */
-    --text-dark: #3b003b;
-    --accent-color: #f72585; /* Vivid pink */
-    --shadow-color: rgba(247, 37, 133, 0.4);
+    --color-1: #7c5ac2;
+    --color-2: #333;
+    --color-3: #fff;
+    --primary-gradient-start: #7c5ac2;
+    --primary-gradient-end: #7c5ac2;
+    --secondary-gradient-start: #7c5ac2;
+    --secondary-gradient-end: #7c5ac2;
+    --glass-bg: rgba(124 90 194 / 0.15);
+    --glass-border: rgba(124 90 194 / 0.4);
+    --text-light: #fff;
+    --text-dark: #333;
+    --accent-color: #7c5ac2;
+    --shadow-color: rgba(124, 90, 194, 0.4);
     --transition-duration: 0.4s;
   }
   html {
@@ -25,7 +28,8 @@
   body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: #ffe4ec;
+    background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-dark);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -39,7 +43,7 @@
   }
   a:hover,
   a:focus {
-    color: #93004d; /* Darker pink on hover */
+    color: #4b367d;
     outline: none;
   }
   .container {
@@ -50,7 +54,7 @@
   header {
     position: sticky;
     top: 0;
-    background: #ffd1e8cc;
+    background: rgba(124,90,194,0.3);
     backdrop-filter: saturate(180%) blur(14px);
     z-index: 999;
     box-shadow: 0 0 15px var(--shadow-color);
@@ -69,7 +73,7 @@
   .logo {
     font-weight: 700;
     font-size: 1.6rem;
-    color: var(--primary-gradient-end);
+    color: var(--accent-color);
     letter-spacing: 2px;
     user-select: none;
     padding: 0.2rem 0.5rem;
@@ -81,6 +85,7 @@
     height: 30px;
     width: auto;
     user-select: none;
+    filter: brightness(1) contrast(0.8) saturate(1.4);
   }
   nav ul {
     list-style: none;
@@ -89,13 +94,13 @@
     margin: 0;
   }
   nav ul li a {
-    color: var(--primary-gradient-end);
+    color: var(--accent-color);
     font-weight: 600;
     font-size: 1.1rem;
     padding: 0.4rem 0.2rem;
     position: relative;
     letter-spacing: 0.02em;
-    text-shadow: 0 0 3px #f768b3;
+    text-shadow: 0 0 3px var(--accent-color);
   }
   nav ul li a::after {
     content: '';
@@ -123,7 +128,7 @@
     min-height: 520px;
     display: flex;
     align-items: center;
-    color: var(--primary-gradient-end);
+    color: var(--color-3);
     overflow: hidden;
     width: 100%;
     padding-left: 2rem;
@@ -134,7 +139,7 @@
     top: 0; left: 0; right: 0; bottom: 0;
     background-size: cover;
     background-position: center center;
-    animation: fade-slide 28s infinite;
+    animation: fade-slide 40s infinite;
     opacity: 0;
     transition: opacity 1.4s ease;
   }
@@ -155,11 +160,11 @@
     max-width: 720px;
     padding: 2rem 3rem;
     z-index: 2;
-    background: linear-gradient(135deg, rgba(255,182,193,0.9), rgba(247,37,133,0.9));
+    background: linear-gradient(135deg, rgba(124,90,194,0.85), rgba(124,90,194,0.85));
     border-radius: 14px;
-    box-shadow: 0 6px 28px rgba(247,37,133,0.7);
-    color: var(--text-light);
-    text-shadow: 0 2px 5px rgba(255,255,255,0.75);
+    box-shadow: 0 6px 28px rgba(124,90,194,0.7);
+    color: var(--color-3);
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
   }
   .hero-content h1 {
     font-size: 3.8rem;
@@ -180,15 +185,15 @@
     border-radius: 40px;
     font-weight: 700;
     font-size: 1.2rem;
-    color: #111;
+    color: var(--color-3);
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(247,37,133,0.75);
+    box-shadow: 0 6px 20px rgba(124,90,194,0.75);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   .hero-content button.cta-btn:hover,
   .hero-content button.cta-btn:focus {
-    background: #93004d;
-    box-shadow: 0 8px 24px rgba(147,0,77,0.9);
+    background: #4b367d;
+    box-shadow: 0 8px 24px rgba(75,54,125,0.9);
     outline: none;
   }
   /* Google rating */
@@ -202,7 +207,7 @@
     gap: 0.5rem;
   }
   .stars {
-    color: #f72585;
+    color: var(--accent-color);
     font-size: 1.6rem;
     line-height: 1;
   }
@@ -218,14 +223,14 @@
     font-size: 3rem;
     margin-bottom: 1.6rem;
     text-align: center;
-    color: var(--secondary-gradient-end);
-    text-shadow: 0 0 10px #ffb3c1;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color);
   }
   /* Services cards */
   #services {
-    background: linear-gradient(135deg, #ffc8dd 0%, #ffe4ec 50%, #ffb3c1 100%);
+    background: linear-gradient(135deg, #e2d5f7 0%, #ebe1fa 50%, #d6c0f9 100%);
     border-radius: 24px;
-    box-shadow: 0 8px 30px rgba(247,37,133,0.18);
+    box-shadow: 0 8px 30px rgba(124,90,194,0.18);
   }
   .services-grid {
     display: grid;
@@ -237,7 +242,7 @@
     border: 1.5px solid var(--glass-border);
     border-radius: 20px;
     padding: 2.75rem 2.5rem;
-    box-shadow: 0 10px 26px rgba(247, 37, 133, 0.3);
+    box-shadow: 0 10px 26px rgba(124, 90, 194, 0.3);
     color: var(--text-dark);
     backdrop-filter: saturate(180%) blur(12px);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -246,7 +251,7 @@
   .card:hover,
   .card:focus-within {
     transform: translateY(-7px);
-    box-shadow: 0 15px 45px rgba(247, 37, 133, 0.6);
+    box-shadow: 0 15px 45px rgba(124, 90, 194, 0.6);
     outline: none;
   }
   .card h3 {
@@ -255,13 +260,13 @@
     margin-bottom: 1rem;
     font-weight: 700;
     color: var(--accent-color);
-    text-shadow: 0 0 6px #f7258588;
+    text-shadow: 0 0 6px rgba(124,90,194,0.53);
   }
   .card p {
     font-size: 1.1rem;
     line-height: 1.6;
     font-weight: 500;
-    color: #93004dcc;
+    color: #3a3a3acc;
   }
   /* Testimonials */
   .testimonials-wrapper {
@@ -276,7 +281,7 @@
     border-radius: 20px;
     padding: 2.6rem 2.8rem;
     margin-bottom: 2.5rem;
-    box-shadow: 0 12px 34px rgba(247, 37, 133, 0.15);
+    box-shadow: 0 12px 34px rgba(124, 90, 194, 0.15);
     color: var(--text-dark);
     backdrop-filter: saturate(180%) blur(15px);
     font-style: italic;
@@ -286,7 +291,7 @@
     line-height: 1.5;
   }
   .testimonial:hover {
-    box-shadow: 0 18px 48px rgba(247, 37, 133, 0.35);
+    box-shadow: 0 18px 48px rgba(124, 90, 194, 0.35);
   }
   .testimonial::before {
     content: '“';
@@ -298,35 +303,35 @@
     color: var(--accent-color);
     font-weight: 900;
     user-select: none;
-    text-shadow: 0 0 6px #f72585cc;
+    text-shadow: 0 0 6px rgba(124,90,194,0.8);
   }
   .testimonial p {
     margin: 0 0 1.6rem 1.4rem;
-    color: #93004dcc;
+    color: #333a;
   }
   .testimonial cite {
     font-weight: 700;
     font-style: normal;
     color: var(--accent-color);
-    text-shadow: 0 0 4px #93004baa;
+    text-shadow: 0 0 4px rgba(75,54,125,0.75);
   }
   /* Call to Action Section */
   .call-to-action {
-    background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
-    color: #520033;
+    background: linear-gradient(90deg, var(--color-1), var(--color-1));
+    color: var(--color-3);
     text-align: center;
     padding: 3.5rem 2rem;
     border-radius: 20px;
     max-width: 100%;
     margin: 2rem auto 4rem auto;
-    box-shadow: 0 14px 35px rgba(247,37,133,0.85);
+    box-shadow: 0 14px 35px rgba(124,90,194,0.85);
     width: 100%;
   }
   .call-to-action h3 {
     font-size: 2.5rem;
     margin-bottom: 1.2rem;
     font-weight: 700;
-    text-shadow: 0 0 8px #f72585cc;
+    text-shadow: 0 0 8px rgba(124,90,194,0.85);
   }
   .call-to-action button {
     background: var(--accent-color);
@@ -334,21 +339,21 @@
     padding: 1.2rem 3rem;
     font-weight: 800;
     border-radius: 40px;
-    color: #111;
+    color: var(--color-3);
     font-size: 1.3rem;
     cursor: pointer;
-    box-shadow: 0 9px 26px rgba(247,37,133,0.7);
+    box-shadow: 0 9px 26px rgba(124,90,194,0.7);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
   }
   .call-to-action button:hover,
   .call-to-action button:focus {
-    background: #93004d;
-    box-shadow: 0 12px 34px rgba(147,0,77,0.95);
+    background: #4b367d;
+    box-shadow: 0 12px 34px rgba(75,54,125,0.95);
     outline: none;
   }
   /* Contact Section */
   #contact {
-    background: #fcd8e7;
+    background: #f4eaff;
     padding-bottom: 5rem;
     color: var(--text-dark);
   }
@@ -372,13 +377,13 @@
     color: var(--accent-color);
     margin-bottom: 1.8rem;
     font-size: 2.2rem;
-    text-shadow: 0 0 6px #ef81bbcc;
+    text-shadow: 0 0 6px rgba(124,90,194,0.8);
   }
   .contact-info p {
     font-weight: 600;
     font-size: 1.1rem;
     margin: 0.8rem 0;
-    color: #93004dcc;
+    color: #333a;
     user-select: text;
     line-height: 1.5;
   }
@@ -386,7 +391,7 @@
     user-select: text;
     color: var(--accent-color);
     font-weight: 700;
-    text-shadow: 0 0 3px #93004b44;
+    text-shadow: 0 0 3px rgba(75,54,125,0.45);
   }
   iframe.map {
     border: none;
@@ -394,19 +399,19 @@
     width: 100%;
     height: 270px;
     border-radius: 20px;
-    box-shadow: 0 8px 38px rgba(247,37,133,0.7);
+    box-shadow: 0 8px 38px rgba(124,90,194,0.7);
     transition: box-shadow 0.3s ease;
   }
   iframe.map:hover,
   iframe.map:focus-visible {
-    box-shadow: 0 12px 48px rgba(147,0,77,0.85);
+    box-shadow: 0 12px 48px rgba(75,54,125,0.85);
     outline: none;
   }
   form#contact-form {
-    background: #ffc0cb;
+    background: #d9cafd;
     padding: 2.6rem 3rem;
     border-radius: 20px;
-    box-shadow: 0 14px 38px rgba(247,37,133,0.7);
+    box-shadow: 0 14px 38px rgba(124,90,194,0.7);
     display: flex;
     flex-direction: column;
     color: var(--text-dark);
@@ -418,60 +423,60 @@
     margin-bottom: 0.5rem;
     font-size: 1.05rem;
     color: var(--accent-color);
-    text-shadow: 0 0 5px #bd5ea366;
+    text-shadow: 0 0 5px rgba(124,90,194,0.4);
   }
   form#contact-form input,
   form#contact-form textarea {
     font-family: 'Poppins', sans-serif;
     border-radius: 12px;
-    border: 2px solid #f72585;
+    border: 2px solid var(--accent-color);
     font-size: 1.15rem;
     padding: 1rem 1.2rem;
     margin-bottom: 1.8rem;
     resize: vertical;
     transition: border-color 0.3s ease;
-    color: #93004b;
-    background: #ffd1dc;
-    box-shadow: inset 0 0 6px #f77bb4aa;
+    color: #362e5e;
+    background: #f0e7ff;
+    box-shadow: inset 0 0 6px rgba(124,90,194,0.4);
   }
   form#contact-form input::placeholder,
   form#contact-form textarea::placeholder {
-    color: #eea4c6;
+    color: #b3a4e3;
     opacity: 0.9;
   }
   form#contact-form input:focus,
   form#contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: #fab7d6;
+    background: #e6dbff;
     box-shadow: 0 0 12px var(--accent-color);
-    color: #73003f;
+    color: #2b2360;
   }
   form#contact-form button {
     cursor: pointer;
-    background: var(--primary-gradient-end);
-    color: #520033;
+    background: var(--primary-gradient-start);
+    color: var(--color-2);
     font-weight: 800;
     border: none;
     border-radius: 48px;
     padding: 1.2rem 2.2rem;
     font-size: 1.25rem;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 22px rgba(247,37,133,0.7);
+    box-shadow: 0 8px 22px rgba(124,90,194,0.7);
     align-self: flex-start;
     user-select: none;
     position: relative;
   }
   form#contact-form button:hover,
   form#contact-form button:focus {
-    background: #93004dcc;
-    box-shadow: 0 12px 34px rgba(147,0,77,0.9);
+    background: #5f4bb6;
+    box-shadow: 0 12px 34px rgba(95,75,182,0.9);
     outline: none;
   }
 
   /* Loader Spinner */
   .loader {
-    border: 3px solid rgba(247, 37, 133, 0.2);
+    border: 3px solid rgba(124, 90, 194, 0.2);
     border-top: 3px solid var(--accent-color);
     border-radius: 50%;
     width: 20px;
@@ -488,15 +493,15 @@
 
   /* Footer */
   footer {
-    background: #ffb3c1;
-    color: #93004dcc;
+    background: var(--accent-color);
+    color: var(--color-3);
     text-align: center;
     padding: 2rem 1rem;
     font-size: 1rem;
     font-weight: 600;
     user-select: none;
     width: 100%;
-    text-shadow: 0 0 4px #bd5ea466;
+    text-shadow: 0 0 4px rgba(75,54,125,0.7);
   }
   /* Responsive */
   @media (max-width: 700px) {
@@ -562,6 +567,8 @@
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1468071174046-657d9d351a40?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1509057199576-632a47484ece?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
     <div class="hero-content" role="banner">
       <h1>Welcome to Moonlight Family Restaurant</h1>
       <p>Delight in warm family dining with delicious dishes & cozy ambiance.</p>
@@ -573,7 +580,7 @@
   </section>
   <section id="about" aria-labelledby="about-title">
     <h2 id="about-title" class="section-title">About Us</h2>
-    <div class="container" style="max-width:900px; text-align:center; color:#93004dcc; font-weight: 600;">
+    <div class="container" style="max-width:900px; text-align:center; color:#333a; font-weight: 600;">
       <p>Moonlight Family Restaurant is your cozy neighborhood dining spot in Glendale, CA, where we serve heartwarming meals crafted with love. Our mission is to bring families together with homemade classics and modern favorites in a comfortable atmosphere that feels like home.</p>
     </div>
   </section>
@@ -627,8 +634,8 @@
       <div class="contact-info" aria-label="Business contact details">
         <h3>Moonlight Family Restaurant</h3>
         <p><strong>Address:</strong> 1022 E Chevy Chase Dr unit d, Glendale, CA 91205</p>
-        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#93004b;">(Not Provided)</a></p>
-        <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com">info@yourbusiness.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#4b367d;">(Not Provided)</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com" style="color:#7c5ac2;">info@yourbusiness.com</a></p>
         <iframe class="map" srcdoc="<style>html,body{margin:0;padding:0;height:100%;}#map{height:100%;width:100%;}</style>
           <div id='map'>
             <img alt='Map placeholder for Moonlight Family Restaurant' src='https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8AZ0UdUhrY3oFVklHY9Fkg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=151.34134&pitch=0&thumbfov=100' style='width:100%;height:100%;object-fit:cover;border-radius:20px;'/>
@@ -643,7 +650,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Write your message here..." rows="4" required></textarea>
           <button type="submit" aria-label="Send message">Send Message<span class="loader" aria-hidden="true" style="display:none;"></span></button>
-          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#93004b; font-weight:700;"></p>
+          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#4b367d; font-weight:700;"></p>
         </form>
       </div>
     </div>
@@ -671,7 +678,7 @@
     setInterval(nextSlide, 7000);
   })();
 
-  // Contact form submission with loader animation
+  // Contact form submission with loader animation and updated text
   const contactForm = document.getElementById('contact-form');
   const contactStatus = contactForm.querySelector('p[role="alert"]');
   const submitButton = contactForm.querySelector('button[type="submit"]');
@@ -684,8 +691,8 @@
     loaderSpan.style.display = 'inline-block';
     contactStatus.textContent = '';
     setTimeout(() => {
-      contactStatus.style.color = '#93004b';
-      contactStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+      contactStatus.style.color = '#4b367d';
+      contactStatus.textContent = 'Your changes are being made!';
       submitButton.disabled = false;
       loaderSpan.style.display = 'none';
       contactForm.reset();
@@ -785,7 +792,7 @@
           });
           if (!res.ok) throw new Error('Network response was not ok');
           const json = await res.json();
-          let msg = json.message || 'Your request has been sent successfully.';
+          let msg = json.message || 'Your changes are being made!';
           setResponseMsg(msg);
           setTimeout(() => {
             setVisible(false);
@@ -807,7 +814,7 @@
         style: {
           position: 'fixed',
           inset: 0,
-          backgroundColor: 'rgba(255,182,193,0.65)',
+          backgroundColor: 'rgba(124,90,194,0.65)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -830,8 +837,8 @@
             backgroundColor: 'rgba(255 255 255 / 0.97)',
             borderRadius: 30,
             padding: 30,
-            boxShadow: '0 4px 40px rgba(247,37,133,0.35)',
-            color: '#7a003c',
+            boxShadow: '0 4px 40px rgba(124,90,194,0.35)',
+            color: '#333',
             fontFamily: "'Poppins', sans-serif",
             userSelect: 'text',
             maxHeight: '95vh',
@@ -852,12 +859,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'buy' ? '#93004d' : '#f7a1cc',
-                background: tab === 'buy' ? '#fcd4e0' : 'transparent',
+                color: tab === 'buy' ? '#4b367d' : '#b3a4e3',
+                background: tab === 'buy' ? '#e6dbff' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'buy' ? '0 5px 15px rgba(247,37,133,0.6)' : 'none',
+                boxShadow: tab === 'buy' ? '0 5px 15px rgba(124,90,194,0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'BUY SITE'),
@@ -869,12 +876,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'request' ? '#93004d' : '#f7a1cc',
-                background: tab === 'request' ? '#fcd4e0' : 'transparent',
+                color: tab === 'request' ? '#4b367d' : '#b3a4e3',
+                background: tab === 'request' ? '#e6dbff' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'request' ? '0 5px 15px rgba(247,37,133,0.6)' : 'none',
+                boxShadow: tab === 'request' ? '0 5px 15px rgba(124,90,194,0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'REQUEST CHANGES')
@@ -886,7 +893,7 @@
               justifyContent: 'center',
               alignItems: 'center',
               minHeight: 180,
-              color: '#93004d',
+              color: '#4b367d',
               fontWeight: 600,
               fontSize: '1.4rem'
             }
@@ -896,17 +903,17 @@
             rel: 'noopener noreferrer',
             style: {
               padding: '1rem 3rem',
-              background: '#f72585',
-              color: '#111',
+              background: '#7c5ac2',
+              color: '#fff',
               textDecoration: 'none',
               borderRadius: 40,
               fontWeight: 700,
-              boxShadow: '0 8px 15px rgba(247,37,133,0.8)',
+              boxShadow: '0 8px 15px rgba(124,90,194,0.8)',
               userSelect: 'none',
               transition: 'background-color 0.3s ease'
             },
-            onMouseOver: e => e.currentTarget.style.backgroundColor = '#93004d',
-            onMouseOut: e => e.currentTarget.style.backgroundColor = '#f72585'
+            onMouseOver: e => e.currentTarget.style.backgroundColor = '#4b367d',
+            onMouseOut: e => e.currentTarget.style.backgroundColor = '#7c5ac2'
           }, 'Buy Site')) :
           e('form', {
             onSubmit: handleSubmit,
@@ -930,7 +937,7 @@
               required: true,
               value: formData.businessName,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #f72585', background: '#fcd4e0', color: '#93004d'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#e6dbff', color: '#4b367d'}
             }),
             e('label', {htmlFor: 'modal-logo'}, 'Logo (.jpg or .png) - Enter link or base64 string'),
             e('textarea', {
@@ -940,7 +947,7 @@
               rows: 2,
               value: formData.logo,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #f72585', resize: 'vertical', background: '#fcd4e0', color: '#93004d'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#e6dbff', color: '#4b367d'}
             }),
             e('label', {htmlFor: 'modal-colorChoice'}, 'Colors'),
             e('input', {
@@ -950,7 +957,7 @@
               placeholder: 'Your preferred color scheme',
               value: formData.colorChoice,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #f72585', background: '#fcd4e0', color: '#93004d'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#e6dbff', color: '#4b367d'}
             }),
             e('label', {htmlFor: 'modal-changes'}, 'Changes'),
             e('textarea', {
@@ -961,22 +968,22 @@
               required: true,
               value: formData.changes,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #f72585', resize: 'vertical', background: '#fcd4e0', color: '#93004d'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#e6dbff', color: '#4b367d'}
             }),
             e('button', {
               type: 'submit',
               disabled: submitting,
               style: {
                 marginTop: 8,
-                backgroundColor: '#fcd4e0',
-                color: '#93004d',
+                backgroundColor: '#e6dbff',
+                color: '#4b367d',
                 padding: '0.9rem 2rem',
                 fontWeight: '700',
                 borderRadius: 30,
                 border: 'none',
                 cursor: submitting ? 'wait' : 'pointer',
                 fontSize: '1.1rem',
-                boxShadow: '0 5px 15px rgba(247,37,133,0.6)',
+                boxShadow: '0 5px 15px rgba(124,90,194,0.6)',
                 transition: 'background-color 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -985,15 +992,15 @@
                 userSelect: 'none'
               },
               onMouseOver: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#93004d';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#4b367d';
               },
               onMouseOut: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#fcd4e0';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#e6dbff';
               }
-            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(247,37,133,0.2)', borderTop:'3px solid #f72585', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
+            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(124,90,194,0.2)', borderTop:'3px solid #7c5ac2', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
             responseMsg && e('p', {
               role: 'alert',
-              style: {color: '#93004d', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
+              style: {color: '#4b367d', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
             }, responseMsg)
           )
         )
