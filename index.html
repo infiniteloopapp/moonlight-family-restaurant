@@ -7,19 +7,19 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
   :root {
-    --color-1: #006400;
-    --color-2: #000;
-    --color-3: #fff;
-    --primary-gradient-start: #004d00;
-    --primary-gradient-end: #006400;
-    --secondary-gradient-start: #004d00;
-    --secondary-gradient-end: #006400;
-    --glass-bg: rgba(0, 100, 0, 0.12);
-    --glass-border: rgba(0, 100, 0, 0.3);
-    --text-light: #e0f0d9;
-    --text-dark: #000;
-    --accent-color: #00b33c;
-    --shadow-color: rgba(0, 100, 0, 0.3);
+    --color-1: #000000;
+    --color-2: #000000;
+    --color-3: #ffffff;
+    --primary-gradient-start: #ff6600;
+    --primary-gradient-end: #cc4400;
+    --secondary-gradient-start: #ff6600;
+    --secondary-gradient-end: #cc4400;
+    --glass-bg: rgba(255, 102, 0, 0.15);
+    --glass-border: rgba(255, 102, 0, 0.3);
+    --text-light: #ffa94d;
+    --text-dark: #000000;
+    --accent-color: #ff6600;
+    --shadow-color: rgba(255, 102, 0, 0.3);
     --transition-duration: 0.4s;
   }
   html {
@@ -42,7 +42,7 @@
   }
   a:hover,
   a:focus {
-    color: #009933;
+    color: #ff8533;
     outline: none;
   }
   .container {
@@ -53,10 +53,10 @@
   header {
     position: sticky;
     top: 0;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: saturate(180%) blur(8px);
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: saturate(180%) blur(6px);
     z-index: 999;
-    box-shadow: 0 1px 6px var(--shadow-color);
+    box-shadow: none;
     width: 100%;
     padding: 0.75rem 0;
   }
@@ -86,7 +86,8 @@
     height: 36px;
     width: auto;
     user-select: none;
-    filter: brightness(0) saturate(100%) invert(49%) sepia(95%) saturate(466%) hue-rotate(95deg) brightness(92%) contrast(88%);
+    filter: none;
+    -webkit-filter: none;
   }
   nav ul {
     list-style: none;
@@ -135,7 +136,7 @@
     width: 100%;
     padding-left: 2rem;
     padding-right: 2rem;
-    background: linear-gradient(135deg, #001a00 0%, #004d00 100%);
+    background: linear-gradient(135deg, #1a0000 0%, #4d1a00 100%);
   }
   .hero .slide {
     position: absolute;
@@ -145,7 +146,7 @@
     animation: fade-slide 40s infinite;
     opacity: 0;
     transition: opacity 1.4s ease;
-    filter: brightness(0.5) contrast(1.1) saturate(1.2);
+    filter: brightness(0.6) contrast(1.1) saturate(1.2);
   }
   .hero .slide.active {
     opacity: 1;
@@ -164,13 +165,14 @@
     max-width: 720px;
     padding: 2rem 3rem;
     z-index: 2;
-    background: rgba(0, 100, 0, 0.8);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 153, 60, 0.6);
+    background: rgba(255, 102, 0, 0.9);
+    border-radius: 14px;
+    box-shadow: none;
     color: var(--color-3);
-    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: none;
     font-weight: 700;
     font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease;
   }
   .hero-content h1 {
     font-size: 3.2rem;
@@ -183,7 +185,7 @@
     font-weight: 500;
     line-height: 1.5;
     margin-bottom: 1.8rem;
-    color: #b7e7b7cc;
+    color: #ffb280cc;
   }
   .hero-content button.cta-btn {
     background: var(--accent-color);
@@ -192,15 +194,14 @@
     border-radius: 30px;
     font-weight: 700;
     font-size: 1.15rem;
-    color: var(--color-2);
+    color: var(--color-3);
     cursor: pointer;
-    box-shadow: 0 6px 20px rgba(0, 179, 60, 0.6);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
   }
   .hero-content button.cta-btn:hover,
   .hero-content button.cta-btn:focus {
-    background: #009933;
-    box-shadow: 0 8px 28px rgba(0, 179, 60, 0.9);
+    background: #ff8533;
     outline: none;
     color: var(--color-3);
   }
@@ -239,9 +240,9 @@
   }
   /* Services cards */
   #services {
-    background: #001e00;
+    background: #330f00;
     border-radius: 20px;
-    box-shadow: 0 6px 24px rgba(0, 100, 0, 0.15);
+    box-shadow: none;
   }
   .services-grid {
     display: grid;
@@ -253,7 +254,7 @@
     border: 1.3px solid var(--glass-border);
     border-radius: 16px;
     padding: 2.5rem 2rem;
-    box-shadow: 0 6px 22px rgba(0, 140, 40, 0.25);
+    box-shadow: none;
     color: var(--text-light);
     backdrop-filter: saturate(160%) blur(12px);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -263,7 +264,7 @@
   .card:hover,
   .card:focus-within {
     transform: translateY(-6px);
-    box-shadow: 0 14px 36px rgba(0, 153, 60, 0.5);
+    box-shadow: 0 12px 24px rgba(255, 102, 0, 0.6);
     outline: none;
   }
   .card h3 {
@@ -278,7 +279,7 @@
     font-size: 1.1rem;
     line-height: 1.5;
     font-weight: 500;
-    color: #a7d7a799;
+    color: #ffb38099;
   }
   /* Testimonials */
   .testimonials-wrapper {
@@ -293,7 +294,7 @@
     border-radius: 18px;
     padding: 2.2rem 2.5rem;
     margin-bottom: 2.4rem;
-    box-shadow: 0 10px 36px rgba(0, 140, 40, 0.12);
+    box-shadow: none;
     color: var(--text-light);
     backdrop-filter: saturate(160%) blur(14px);
     font-style: italic;
@@ -304,7 +305,7 @@
     font-family: 'Poppins', sans-serif;
   }
   .testimonial:hover {
-    box-shadow: 0 16px 48px rgba(0, 153, 60, 0.3);
+    box-shadow: 0 12px 28px rgba(255, 102, 0, 0.4);
   }
   .testimonial::before {
     content: '“';
@@ -321,7 +322,7 @@
   }
   .testimonial p {
     margin: 0 0 1.6rem 1.4rem;
-    color: #c5e6bfcc;
+    color: #ffb280cc;
   }
   .testimonial cite {
     font-weight: 700;
@@ -338,7 +339,7 @@
     border-radius: 20px;
     max-width: 100%;
     margin: 3rem auto 5rem auto;
-    box-shadow: 0 12px 42px rgba(0, 128, 0, 0.7);
+    box-shadow: none;
     width: 100%;
     font-family: 'Poppins', sans-serif;
   }
@@ -355,23 +356,22 @@
     padding: 1.1rem 3rem;
     font-weight: 800;
     border-radius: 40px;
-    color: var(--color-2);
+    color: var(--color-3);
     font-size: 1.25rem;
     cursor: pointer;
-    box-shadow: 0 10px 28px rgba(0, 179, 60, 0.7);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: background-color 0.3s ease;
     font-family: 'Poppins', sans-serif;
   }
   .call-to-action button:hover,
   .call-to-action button:focus {
-    background: #009933;
-    box-shadow: 0 14px 40px rgba(0, 179, 60, 1);
+    background: #ff8533;
     outline: none;
     color: var(--color-3);
   }
   /* Contact Section */
   #contact {
-    background: #001e00;
+    background: #330f00;
     padding-bottom: 5rem;
     color: var(--text-light);
   }
@@ -402,7 +402,7 @@
     font-weight: 600;
     font-size: 1.1rem;
     margin: 1rem 0;
-    color: #a7d7a788;
+    color: #ffb38088;
     user-select: text;
     line-height: 1.5;
   }
@@ -415,7 +415,7 @@
   }
   .contact-info a:hover,
   .contact-info a:focus {
-    color: #009933;
+    color: #ff8533;
     outline: none;
   }
   iframe.map {
@@ -424,19 +424,19 @@
     width: 100%;
     height: 280px;
     border-radius: 20px;
-    box-shadow: 0 8px 30px rgba(0, 140, 40, 0.7);
-    transition: box-shadow 0.3s ease;
+    box-shadow: none;
+    transition: none;
   }
   iframe.map:hover,
   iframe.map:focus-visible {
-    box-shadow: 0 12px 44px rgba(0, 179, 60, 0.9);
+    box-shadow: none;
     outline: none;
   }
   form#contact-form {
-    background: #003300;
+    background: #4d1a00;
     padding: 2.5rem 3rem;
     border-radius: 20px;
-    box-shadow: 0 12px 42px rgba(0, 179, 60, 0.6);
+    box-shadow: none;
     display: flex;
     flex-direction: column;
     color: var(--text-light);
@@ -461,22 +461,22 @@
     margin-bottom: 1.8rem;
     resize: vertical;
     transition: border-color 0.3s ease, background-color 0.3s ease;
-    color: #b7e7b7;
-    background: #004a00;
-    box-shadow: inset 0 0 6px rgba(0, 179, 60, 0.5);
+    color: #ffb280;
+    background: #662b00;
+    box-shadow: none;
   }
   form#contact-form input::placeholder,
   form#contact-form textarea::placeholder {
-    color: #78a878;
+    color: #ffb280cc;
     opacity: 0.85;
   }
   form#contact-form input:focus,
   form#contact-form textarea:focus {
     outline: none;
     border-color: var(--accent-color);
-    background: #007000;
-    box-shadow: 0 0 12px var(--accent-color);
-    color: #dcffdc;
+    background: #cc5500;
+    box-shadow: none;
+    color: #fff3e0;
   }
   form#contact-form button {
     cursor: pointer;
@@ -487,24 +487,23 @@
     border-radius: 40px;
     padding: 1.2rem 2.8rem;
     font-size: 1.25rem;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 8px 28px rgba(0, 179, 60, 0.7);
+    transition: background-color 0.3s ease;
     align-self: flex-start;
     user-select: none;
     position: relative;
     font-family: 'Poppins', sans-serif;
+    box-shadow: none;
   }
   form#contact-form button:hover,
   form#contact-form button:focus {
-    background: #009933;
-    box-shadow: 0 12px 38px rgba(0, 179, 60, 1);
+    background: #ff8533;
     outline: none;
     color: var(--color-3);
   }
 
   /* Loader Spinner */
   .loader {
-    border: 3px solid rgba(0, 153, 60, 0.20);
+    border: 3px solid rgba(255, 102, 0, 0.20);
     border-top: 3px solid var(--accent-color);
     border-radius: 50%;
     width: 20px;
@@ -531,6 +530,7 @@
     width: 100%;
     text-shadow: none;
     font-family: 'Poppins', sans-serif;
+    box-shadow: none;
   }
   /* Responsive */
   @media (max-width: 700px) {
@@ -609,7 +609,7 @@
   </section>
   <section id="about" aria-labelledby="about-title">
     <h2 id="about-title" class="section-title">About Us</h2>
-    <div class="container" style="max-width:900px; text-align:center; color:#a7d7a788; font-weight: 600; font-family: 'Poppins', sans-serif;">
+    <div class="container" style="max-width:900px; text-align:center; color:#ffb38088; font-weight: 600; font-family: 'Poppins', sans-serif;">
       <p>Moonlight Family Restaurant is your cozy neighborhood dining spot in Glendale, CA, where we serve heartwarming meals crafted with love. Our mission is to bring families together with homemade classics and modern favorites in a comfortable atmosphere that feels like home.</p>
     </div>
   </section>
@@ -663,8 +663,8 @@
       <div class="contact-info" aria-label="Business contact details">
         <h3>Moonlight Family Restaurant</h3>
         <p><strong>Address:</strong> 1022 E Chevy Chase Dr unit d, Glendale, CA 91205</p>
-        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#009933;">(Not Provided)</a></p>
-        <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com" style="color:#00b33c;">info@yourbusiness.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#ff6600;">(Not Provided)</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com" style="color:#ff6600;">info@yourbusiness.com</a></p>
         <iframe class="map" srcdoc="<style>html,body{margin:0;padding:0;height:100%;}#map{height:100%;width:100%;}</style>
           <div id='map'>
             <img alt='Map placeholder for Moonlight Family Restaurant' src='https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8AZ0UdUhrY3oFVklHY9Fkg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=151.34134&pitch=0&thumbfov=100' style='width:100%;height:100%;object-fit:cover;border-radius:20px;'/>
@@ -679,7 +679,7 @@
           <label for="message">Message</label>
           <textarea id="message" name="message" placeholder="Write your message here..." rows="4" required></textarea>
           <button type="submit" aria-label="Send message">Send Message<span class="loader" aria-hidden="true" style="display:none;"></span></button>
-          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#009933; font-weight:700;"></p>
+          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#ff6600; font-weight:700;"></p>
         </form>
       </div>
     </div>
@@ -720,7 +720,7 @@
     loaderSpan.style.display = 'inline-block';
     contactStatus.textContent = '';
     setTimeout(() => {
-      contactStatus.style.color = '#009933';
+      contactStatus.style.color = '#ff6600';
       contactStatus.textContent = 'Your changes are being made!';
       submitButton.disabled = false;
       loaderSpan.style.display = 'none';
@@ -843,7 +843,7 @@
         style: {
           position: 'fixed',
           inset: 0,
-          backgroundColor: 'rgba(0,100,0,0.65)',
+          backgroundColor: 'rgba(40,20,0,0.85)',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -863,11 +863,11 @@
           style: {
             width: '70%',
             maxWidth: 600,
-            backgroundColor: 'rgba(255 255 255 / 0.97)',
+            backgroundColor: '#fff9f0',
             borderRadius: 30,
             padding: 30,
-            boxShadow: '0 4px 40px rgba(0, 153, 0, 0.35)',
-            color: '#333',
+            boxShadow: '0 4px 40px rgba(255, 102, 0, 0.35)',
+            color: '#331a00',
             fontFamily: "'Poppins', sans-serif",
             userSelect: 'text',
             maxHeight: '95vh',
@@ -888,12 +888,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'buy' ? '#006400' : '#78a878',
-                background: tab === 'buy' ? '#d9f2d9' : 'transparent',
+                color: tab === 'buy' ? '#cc4400' : '#ff9966',
+                background: tab === 'buy' ? '#ffe6cc' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'buy' ? '0 5px 15px rgba(0,128,0,0.6)' : 'none',
+                boxShadow: tab === 'buy' ? '0 5px 15px rgba(204, 68, 0, 0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'BUY SITE'),
@@ -905,12 +905,12 @@
               style: {
                 padding: '0.9rem 2rem',
                 cursor: 'pointer',
-                color: tab === 'request' ? '#006400' : '#78a878',
-                background: tab === 'request' ? '#d9f2d9' : 'transparent',
+                color: tab === 'request' ? '#cc4400' : '#ff9966',
+                background: tab === 'request' ? '#ffe6cc' : 'transparent',
                 borderRadius: 24,
                 fontWeight: 700,
                 border: 'none',
-                boxShadow: tab === 'request' ? '0 5px 15px rgba(0,128,0,0.6)' : 'none',
+                boxShadow: tab === 'request' ? '0 5px 15px rgba(204, 68, 0, 0.6)' : 'none',
                 transition: 'all 0.3s ease'
               }
             }, 'REQUEST CHANGES')
@@ -922,7 +922,7 @@
               justifyContent: 'center',
               alignItems: 'center',
               minHeight: 180,
-              color: '#006400',
+              color: '#cc4400',
               fontWeight: 600,
               fontSize: '1.4rem'
             }
@@ -932,17 +932,17 @@
             rel: 'noopener noreferrer',
             style: {
               padding: '1rem 3rem',
-              background: '#008000',
+              background: '#ff6600',
               color: '#fff',
               textDecoration: 'none',
               borderRadius: 40,
               fontWeight: 700,
-              boxShadow: '0 8px 15px rgba(0,128,0,0.8)',
+              boxShadow: '0 8px 15px rgba(255,102,0,0.8)',
               userSelect: 'none',
               transition: 'background-color 0.3s ease'
             },
-            onMouseOver: e => e.currentTarget.style.backgroundColor = '#004d00',
-            onMouseOut: e => e.currentTarget.style.backgroundColor = '#008000'
+            onMouseOver: e => e.currentTarget.style.backgroundColor = '#cc4400',
+            onMouseOut: e => e.currentTarget.style.backgroundColor = '#ff6600'
           }, 'Buy Site')) :
           e('form', {
             onSubmit: handleSubmit,
@@ -966,7 +966,7 @@
               required: true,
               value: formData.businessName,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#d9f2d9', color: '#004d00'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#ffe6cc', color: '#cc4400'}
             }),
             e('label', {htmlFor: 'modal-logo'}, 'Logo (.jpg or .png) - Enter link or base64 string'),
             e('textarea', {
@@ -976,7 +976,7 @@
               rows: 2,
               value: formData.logo,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#d9f2d9', color: '#004d00'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#ffe6cc', color: '#cc4400'}
             }),
             e('label', {htmlFor: 'modal-colorChoice'}, 'Colors'),
             e('input', {
@@ -986,7 +986,7 @@
               placeholder: 'Your preferred color scheme',
               value: formData.colorChoice,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#d9f2d9', color: '#004d00'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', background: '#ffe6cc', color: '#cc4400'}
             }),
             e('label', {htmlFor: 'modal-changes'}, 'Changes'),
             e('textarea', {
@@ -997,22 +997,22 @@
               required: true,
               value: formData.changes,
               onChange: handleChange,
-              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#d9f2d9', color: '#004d00'}
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid var(--accent-color)', resize: 'vertical', background: '#ffe6cc', color: '#cc4400'}
             }),
             e('button', {
               type: 'submit',
               disabled: submitting,
               style: {
                 marginTop: 8,
-                backgroundColor: '#d9f2d9',
-                color: '#004d00',
+                backgroundColor: '#ffe6cc',
+                color: '#cc4400',
                 padding: '0.9rem 2rem',
                 fontWeight: '700',
                 borderRadius: 30,
                 border: 'none',
                 cursor: submitting ? 'wait' : 'pointer',
                 fontSize: '1.1rem',
-                boxShadow: '0 5px 15px rgba(0,128,0,0.6)',
+                boxShadow: '0 5px 15px rgba(204,68,0,0.6)',
                 transition: 'background-color 0.3s ease',
                 display: 'flex',
                 alignItems: 'center',
@@ -1021,15 +1021,15 @@
                 userSelect: 'none'
               },
               onMouseOver: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#004d00';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#cc4400';
               },
               onMouseOut: e => {
-                if (!submitting) e.currentTarget.style.backgroundColor = '#d9f2d9';
+                if (!submitting) e.currentTarget.style.backgroundColor = '#ffe6cc';
               }
-            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(0,128,0,0.2)', borderTop:'3px solid #008000', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
+            }, submitting ? e('span', {style:{display:'inline-flex',alignItems:'center',gap:'0.4rem'}}, 'Sending', e('span',{style:{border:'3px solid rgba(204,68,0,0.2)', borderTop:'3px solid #cc4400', borderRadius:'50%', width:'18px', height:'18px', animation:'spin 1s linear infinite'}})) : 'Submit'),
             responseMsg && e('p', {
               role: 'alert',
-              style: {color: '#006400', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
+              style: {color: '#cc4400', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
             }, responseMsg)
           )
         )
