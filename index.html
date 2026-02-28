@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Moonlight Family Restaurant</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
+  :root {
+    --primary-gradient-start: #2a1a72;
+    --primary-gradient-end: #3d2c8d;
+    --secondary-gradient-start: #4b3f99;
+    --secondary-gradient-end: #6c53b5;
+    --glass-bg: rgba(255 255 255 / 0.12);
+    --glass-border: rgba(255 255 255 / 0.3);
+    --text-light: #f5f5f7;
+    --text-dark: #222;
+    --accent-color: #f9a825;
+    --shadow-color: rgba(0, 0, 0, 0.15);
+    --transition-duration: 0.4s;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fb;
+    color: var(--text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+  a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+  }
+  a:hover,
+  a:focus {
+    color: #d48806;
+    outline: none;
+  }
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 1rem;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: #1e1e41cc;
+    backdrop-filter: saturate(180%) blur(14px);
+    z-index: 999;
+    box-shadow: 0 0 15px var(--shadow-color);
+  }
+  nav {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+  }
+  .logo {
+    font-weight: 700;
+    font-size: 1.45rem;
+    color: var(--text-light);
+    letter-spacing: 2px;
+    user-select: none;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+  }
+  nav ul li a {
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1rem;
+    padding: 0.25rem 0;
+    position: relative;
+  }
+  nav ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+  }
+  nav ul li a:hover::after,
+  nav ul li a:focus::after {
+    width: 100%;
+  }
+  main {
+    margin-top: 64px;
+  }
+  /* Hero */
+  .hero {
+    position: relative;
+    height: 90vh;
+    min-height: 520px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  .hero .slide {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-size: cover;
+    background-position: center center;
+    animation: fade-slide 20s infinite;
+    opacity: 0;
+    transition: opacity 1.4s ease;
+  }
+  .hero .slide.active {
+    opacity: 1;
+    position: relative;
+    z-index: 1;
+  }
+  @keyframes fade-slide {
+    0% {opacity: 0;}
+    7% {opacity: 1;}
+    25% {opacity: 1;}
+    32% {opacity: 0;}
+    100% {opacity: 0;}
+  }
+  .hero-content {
+    position: relative;
+    max-width: 720px;
+    padding-left: 2rem;
+    z-index: 2;
+    background: linear-gradient(135deg, rgba(42,26,114,0.84), rgba(61,44,141,0.8));
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(15,12,41,0.4);
+  }
+  .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-shadow: 0 3px 7px rgba(15,12,41,0.4);
+  }
+  .hero-content p {
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 5px rgba(15,12,41,0.3);
+  }
+  .hero-content button.cta-btn {
+    background: var(--accent-color);
+    border: none;
+    padding: 0.9rem 2.25rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #222;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgb(249 168 37 / 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .hero-content button.cta-btn:hover,
+  .hero-content button.cta-btn:focus {
+    background: #d48806;
+    box-shadow: 0 8px 15px rgb(212 136 6 / 0.8);
+    outline: none;
+  }
+  /* Google rating */
+  .rating {
+    margin-top: 2rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .stars {
+    color: #ffb400;
+    font-size: 1.3rem;
+    line-height: 1;
+  }
+  /* Section headings */
+  section {
+    padding: 4rem 1rem 4rem;
+    max-width: 1200px;
+    margin: auto;
+  }
+  section h2.section-title {
+    font-weight: 700;
+    font-size: 2.8rem;
+    margin-bottom: 1.4rem;
+    color: var(--primary-gradient-end);
+    text-align: center;
+  }
+  /* Services cards */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 2rem;
+  }
+  .card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 1.8rem;
+    box-shadow: 0 8px 20px rgb(30 30 65 / 0.15);
+    color: #fff;
+    backdrop-filter: saturate(180%) blur(10px);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    user-select: none;
+  }
+  .card:hover,
+  .card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 40px rgb(71 59 146 / 0.3);
+    outline: none;
+  }
+  .card h3 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-color);
+  }
+  .card p {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-weight: 400;
+    color: #dde1f1dd;
+  }
+  /* Testimonials */
+  .testimonials-wrapper {
+    max-width: 900px;
+    margin: auto;
+    cursor: grab;
+  }
+  .testimonial {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 30px rgb(30 30 65 / 0.12);
+    color: #fff;
+    backdrop-filter: saturate(180%) blur(15px);
+    font-style: italic;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+  }
+  .testimonial:hover {
+    box-shadow: 0 15px 40px rgb(71 59 146 / 0.35);
+  }
+  .testimonial::before {
+    content: '“';
+    font-size: 4rem;
+    line-height: 1;
+    position: absolute;
+    top: 12px;
+    left: 18px;
+    color: var(--accent-color);
+    font-weight: 900;
+    user-select: none;
+  }
+  .testimonial p {
+    margin: 0 0 1.4rem 1.2rem;
+  }
+  .testimonial cite {
+    font-weight: 700;
+    font-style: normal;
+    color: var(--accent-color);
+  }
+  /* Call to Action Section */
+  .call-to-action {
+    background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: #fff;
+    text-align: center;
+    padding: 3rem 1rem;
+    border-radius: 20px;
+    max-width: 800px;
+    margin: 2rem auto 4rem auto;
+    box-shadow: 0 12px 30px rgb(42 26 114 / 0.75);
+  }
+  .call-to-action h3 {
+    font-size: 2.25rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+  }
+  .call-to-action button {
+    background: var(--accent-color);
+    border: none;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    border-radius: 40px;
+    color: #222;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 6px 20px rgb(249 168 37 / 0.6);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  .call-to-action button:hover,
+  .call-to-action button:focus {
+    background: #d48806;
+    box-shadow: 0 9px 26px rgb(212 136 6 / 0.9);
+    outline: none;
+  }
+  /* Contact Section */
+  #contact {
+    background: #f1f6fd;
+    padding-bottom: 5rem;
+  }
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    justify-content: center;
+    max-width: 1100px;
+    margin: auto;
+  }
+  .contact-info, .contact-form-wrapper {
+    flex: 1 1 400px;
+    min-width: 280px;
+  }
+  .contact-info h3 {
+    font-weight: 700;
+    color: var(--primary-gradient-end);
+    margin-bottom: 1.4rem;
+    font-size: 2rem;
+  }
+  .contact-info p {
+    font-weight: 500;
+    font-size: 1.05rem;
+    margin: 0.6rem 0;
+    color: #3c3c44cc;
+    user-select: text;
+  }
+  .contact-info a {
+    user-select: text;
+  }
+  iframe.map {
+    border: none;
+    margin-top: 1.25rem;
+    width: 100%;
+    height: 260px;
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgb(0 0 0 / 0.1);
+  }
+  form#contact-form {
+    background: #fff;
+    padding: 2.2rem 2.4rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgb(30 30 65 / 0.15);
+    display: flex;
+    flex-direction: column;
+  }
+  form#contact-form label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    font-size: 0.95rem;
+    color: var(--primary-gradient-end);
+  }
+  form#contact-form input,
+  form#contact-form textarea {
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    border: 1.6px solid #c0c7d1;
+    font-size: 1rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.3rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    color: #444;
+  }
+  form#contact-form input:focus,
+  form#contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+  form#contact-form button {
+    cursor: pointer;
+    background: var(--primary-gradient-end);
+    color: #fff;
+    font-weight: 700;
+    border: none;
+    border-radius: 40px;
+    padding: 1rem 1.8rem;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+  }
+  form#contact-form button:hover,
+  form#contact-form button:focus {
+    background: #2a1a72cc;
+    outline: none;
+  }
+  /* Footer */
+  footer {
+    background: #221f3b;
+    color: #aaa;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    font-size: 0.92rem;
+    user-select: none;
+  }
+  /* Responsive */
+  @media (max-width: 700px) {
+    .hero-content h1 {
+      font-size: 2.8rem;
+    }
+    nav ul {
+      gap: 1.3rem;
+    }
+  }
+  @media (max-width: 480px) {
+    nav ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+    .hero-content {
+      max-width: 90%;
+      padding-left: 1.2rem;
+      padding-right: 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+<header>
+  <nav aria-label="Primary Navigation">
+    <div class="logo" tabindex="0">Moonlight Family Restaurant</div>
+    <ul>
+      <li><a href="#about" tabindex="0">About Us</a></li>
+      <li><a href="#services" tabindex="0">Services</a></li>
+      <li><a href="#contact" tabindex="0">Contact Us</a></li>
+    </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero" aria-label="Hero section with rotating background images">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1533777324565-a04df0e527b7?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    <div class="hero-content" role="banner">
+      <h1>Welcome to Moonlight Family Restaurant</h1>
+      <p>Delight in warm family dining with delicious dishes & cozy ambiance.</p>
+      <button class="cta-btn" aria-label="Make a reservation at Moonlight Family Restaurant">Make a Reservation</button>
+      <div class="rating" aria-label="Google rating five stars">
+        <div class="stars" aria-hidden="true">★★★★★</div> 5.0 Google Rating
+      </div>
+    </div>
+  </section>
+  <section id="about" aria-labelledby="about-title">
+    <h2 id="about-title" class="section-title">About Us</h2>
+    <div class="container" style="max-width:900px; text-align:center; color:#444; font-weight: 500;">
+      <p>Moonlight Family Restaurant is your cozy neighborhood dining spot in Glendale, CA, where we serve heartwarming meals crafted with love. Our mission is to bring families together with homemade classics and modern favorites in a comfortable atmosphere that feels like home.</p>
+    </div>
+  </section>
+  <section id="services" aria-labelledby="services-title">
+    <h2 id="services-title" class="section-title">Our Services</h2>
+    <div class="services-grid" role="list">
+      <article class="card" role="listitem" tabindex="0" aria-label="Dine-In">
+        <h3>Dine-In Experience</h3>
+        <p>Enjoy our beautifully crafted dishes in a family-friendly atmosphere with attentive service and relaxing ambiance.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Takeout & Delivery">
+        <h3>Takeout & Delivery</h3>
+        <p>Order your favorites to-go or get them delivered fresh to your door with easy online ordering and fast service.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Catering Services">
+        <h3>Catering Services</h3>
+        <p>Perfect for events big and small — enjoy custom menus and dedicated service that make your occasion special.</p>
+      </article>
+      <article class="card" role="listitem" tabindex="0" aria-label="Family Events & Parties">
+        <h3>Family Events & Parties</h3>
+        <p>Celebrate birthdays, anniversaries, and milestones with packages tailored for joyful family gatherings.</p>
+      </article>
+    </div>
+  </section>
+  <section aria-label="Testimonials" style="max-width: 900px; margin: auto; padding-bottom: 2rem;">
+    <h2 class="section-title">What Our Guests Say</h2>
+    <div class="testimonials-wrapper" role="list" aria-live="polite">
+      <blockquote class="testimonial" role="listitem" tabindex="0">
+        <p>“The food is consistently delicious and the staff treats us like family. Perfect place for a casual night out with kids!”</p>
+        <cite>- Sarah M.</cite>
+      </blockquote>
+      <blockquote class="testimonial" role="listitem" tabindex="0">
+        <p>“I love the cozy vibe and the variety of dishes. The catering service made our family reunion effortless and memorable.”</p>
+        <cite>- James T.</cite>
+      </blockquote>
+      <blockquote class="testimonial" role="listitem" tabindex="0">
+        <p>“Moonlight’s takeout is a lifesaver for busy nights – food arrives fresh and tasty every time. Highly recommend!”</p>
+        <cite>- Priya R.</cite>
+      </blockquote>
+    </div>
+  </section>
+  <section aria-label="Call to action">
+    <div class="call-to-action" role="region" aria-live="polite">
+      <h3>Ready to enjoy a wonderful meal with your family?</h3>
+      <button onclick="window.location='#contact'" aria-label="Contact Moonlight Family Restaurant to book a table">Book Your Table Now</button>
+    </div>
+  </section>
+  <section id="contact" aria-labelledby="contact-title" tabindex="-1">
+    <h2 id="contact-title" class="section-title">Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-info" aria-label="Business contact details">
+        <h3>Moonlight Family Restaurant</h3>
+        <p><strong>Address:</strong> 1022 E Chevy Chase Dr unit d, Glendale, CA 91205</p>
+        <p><strong>Phone:</strong> <a href="tel:" aria-label="Phone number not provided" tabindex="-1" aria-disabled="true" style="color:#777;">(Not Provided)</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@yourbusiness.com">info@yourbusiness.com</a></p>
+        <iframe class="map" srcdoc="<style>html,body{margin:0;padding:0;height:100%;}#map{height:100%;width:100%;}</style>
+          <div id='map'>
+            <img alt='Map placeholder for Moonlight Family Restaurant' src='https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=8AZ0UdUhrY3oFVklHY9Fkg&cb_client=search.gws-prod.gps&w=408&h=240&yaw=151.34134&pitch=0&thumbfov=100' style='width:100%;height:100%;object-fit:cover;border-radius:20px;'/>
+          </div>" aria-label="Google Map placeholder showing business location"></iframe>
+      </div>
+      <div class="contact-form-wrapper" aria-label="Contact form">
+        <form id="contact-form" aria-live="polite" novalidate>
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Full name" required autocomplete="name" />
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" placeholder="email@example.com" required autocomplete="email" />
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Write your message here..." rows="4" required></textarea>
+          <button type="submit" aria-label="Send message">Send Message</button>
+          <p role="alert" aria-live="assertive" style="margin-top:0.5rem; color:#228544; font-weight:600;"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<footer role="contentinfo">
+  <p>© 2024 Moonlight Family Restaurant | 1022 E Chevy Chase Dr unit d, Glendale, CA 91205 | Email: info@yourbusiness.com</p>
+</footer>
+
+<!-- Modal root for React exit intent popup -->
+<div id="exit-modal-root" aria-live="polite"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script>
+  // Hero slider logic
+  (function(){
+    const slides = document.querySelectorAll('.hero .slide');
+    let index = 0;
+    function nextSlide(){
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }
+    setInterval(nextSlide, 7000);
+  })();
+
+  // Smooth scroll handled by CSS scroll-behavior
+
+  // Contact form submission (dummy)
+  const contactForm = document.getElementById('contact-form');
+  const contactStatus = contactForm.querySelector('p[role="alert"]');
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    contactStatus.style.color = '#228544';
+    contactStatus.textContent = 'Thank you for your message! We will get back to you soon.';
+    contactForm.reset();
+  });
+
+  // Exit intent modal React component
+  (function(){
+    const e = React.createElement;
+    const {useState, useEffect, useRef} = React;
+
+    function ExitIntentModal({onClose}) {
+      const [visible, setVisible] = useState(false);
+      const [tab, setTab] = useState('buy');
+      const [formData, setFormData] = useState({businessName:'', logo:'', colorChoice:'', changes:''});
+      const [submitting, setSubmitting] = useState(false);
+      const [responseMsg, setResponseMsg] = useState('');
+      const modalRef = useRef(null);
+
+      // Detect exit intent
+      useEffect(() => {
+        function handleMouseOut(e) {
+          if (e.clientY <= 10 && !visible) {
+            setVisible(true);
+          }
+        }
+        window.addEventListener('mouseout', handleMouseOut);
+        // Also for tab close on mobile: listen to visibilitychange
+        function handleVisibilityChange() {
+          if (document.visibilityState === 'hidden' && !visible) {
+            setVisible(true);
+          }
+        }
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+
+        // Disable scroll on modal open
+        if (visible) {
+          document.body.style.overflow = 'hidden';
+          // Focus first tab button
+          setTimeout(() => {
+            if(modalRef.current) {
+              const btn = modalRef.current.querySelector('.tab-buttons button');
+              btn && btn.focus();
+            }
+          }, 0);
+        } else {
+          document.body.style.overflow = '';
+          setResponseMsg('');
+          setSubmitting(false);
+          setFormData({businessName:'', logo:'', colorChoice:'', changes:''});
+          setTab('buy');
+        }
+
+        return () => {
+          window.removeEventListener('mouseout', handleMouseOut);
+          document.removeEventListener('visibilitychange', handleVisibilityChange);
+          document.body.style.overflow = '';
+        };
+      }, [visible]);
+
+      // Close on Escape
+      useEffect(() => {
+        if (!visible) return;
+        function onKeyDown(e) {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            setVisible(false);
+            if (onClose) onClose();
+          }
+        }
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+      }, [visible, onClose]);
+
+      function handleTabChange(tabName) {
+        setTab(tabName);
+        setResponseMsg('');
+      }
+
+      function handleChange(e) {
+        const {name, value} = e.target;
+        setFormData(old => ({...old, [name]: value}));
+      }
+
+      async function handleSubmit(e) {
+        e.preventDefault();
+        if (submitting) return;
+        setSubmitting(true);
+        setResponseMsg('');
+        try {
+          const payload = {
+            businessName: formData.businessName.trim(),
+            logo: formData.logo.trim(),
+            colorChoice: formData.colorChoice.trim(),
+            changes: formData.changes.trim(),
+            pid: 'moonlight-family-restaurant'
+          };
+          const res = await fetch('https://untrekofficial.app.n8n.cloud/webhook/user-changes', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(payload)
+          });
+          if (!res.ok) throw new Error('Network response was not ok');
+          const json = await res.json();
+          let msg = json.message || 'Your request has been sent successfully.';
+          setResponseMsg(msg);
+          setTimeout(() => {
+            setVisible(false);
+            if(onClose) onClose();
+          }, 2500);
+        } catch(err) {
+          setResponseMsg('Error sending request. Please try again later.');
+        } finally {
+          setSubmitting(false);
+        }
+      }
+
+      if(!visible) return null;
+
+      return e('div', {
+        role: 'dialog',
+        'aria-modal': 'true',
+        tabIndex: -1,
+        style: {
+          position: 'fixed',
+          inset: 0,
+          backgroundColor: 'rgba(34,31,59,0.65)',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1500,
+          padding: '1rem',
+          overflowY: 'auto'
+        },
+        onClick: (ev) => {
+          if (ev.target === ev.currentTarget) {
+            setVisible(false);
+            if (onClose) onClose();
+          }
+        },
+        ref: modalRef
+      },
+        e('div', {
+          style: {
+            width: '70%',
+            maxWidth: 600,
+            backgroundColor: 'rgba(255 255 255 / 0.97)',
+            borderRadius: 30,
+            padding: 30,
+            boxShadow: '0 4px 40px rgb(42 26 114 / 0.35)',
+            color: '#221f3b',
+            fontFamily: "'Poppins', sans-serif",
+            userSelect: 'text',
+            maxHeight: '95vh',
+            display: 'flex',
+            flexDirection: 'column'
+          }
+        },
+          e('div', {
+            className: 'tab-buttons',
+            role: 'tablist',
+            style: {display: 'flex', justifyContent: 'center', gap: 24, marginBottom: 24}
+          },
+            e('button', {
+              onClick: () => handleTabChange('buy'),
+              role: 'tab',
+              'aria-selected': tab === 'buy',
+              tabIndex: tab === 'buy' ? 0 : -1,
+              style: {
+                padding: '0.9rem 2rem',
+                cursor: 'pointer',
+                color: tab === 'buy' ? '#fff' : 'var(--primary-gradient-end)',
+                background: tab === 'buy' ? 'linear-gradient(90deg, #2a1a72, #3d2c8d)' : 'transparent',
+                borderRadius: 24,
+                fontWeight: 700,
+                border: 'none',
+                boxShadow: tab === 'buy' ? '0 5px 15px rgb(249 168 37 / 0.6)' : 'none',
+                transition: 'all 0.3s ease'
+              }
+            }, 'BUY SITE'),
+            e('button', {
+              onClick: () => handleTabChange('request'),
+              role: 'tab',
+              'aria-selected': tab === 'request',
+              tabIndex: tab === 'request' ? 0 : -1,
+              style: {
+                padding: '0.9rem 2rem',
+                cursor: 'pointer',
+                color: tab === 'request' ? '#fff' : 'var(--primary-gradient-end)',
+                background: tab === 'request' ? 'linear-gradient(90deg, #2a1a72, #3d2c8d)' : 'transparent',
+                borderRadius: 24,
+                fontWeight: 700,
+                border: 'none',
+                boxShadow: tab === 'request' ? '0 5px 15px rgb(249 168 37 / 0.6)' : 'none',
+                transition: 'all 0.3s ease'
+              }
+            }, 'REQUEST CHANGES')
+          ),
+          tab === 'buy' ? e('div', {
+            style: {
+              flexGrow: 1,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: 180,
+              color: 'var(--primary-gradient-end)',
+              fontWeight: 600,
+              fontSize: '1.4rem'
+            }
+          }, e('a', {
+            href: 'https://buy.stripe.com/eVa16H8Xo0nm37y4gh',
+            target: '_blank',
+            rel: 'noopener noreferrer',
+            style: {
+              padding: '1rem 3rem',
+              background: 'var(--accent-color)',
+              color: '#222',
+              textDecoration: 'none',
+              borderRadius: 40,
+              fontWeight: 700,
+              boxShadow: '0 8px 15px rgb(249 168 37 / 0.8)',
+              userSelect: 'none',
+              transition: 'background-color 0.3s ease'
+            },
+            onMouseOver: e => e.currentTarget.style.backgroundColor = '#d48806',
+            onMouseOut: e => e.currentTarget.style.backgroundColor = 'var(--accent-color)'
+          }, 'Buy Site')) :
+          e('form', {
+            onSubmit: handleSubmit,
+            style: {
+              display: 'flex',
+              flexDirection: 'column',
+              gap: 16,
+              flexGrow: 1,
+              maxHeight: '60vh',
+              overflowY: 'auto'
+            },
+            noValidate: true,
+            'aria-label': 'Request changes form'
+          },
+            e('label', {htmlFor: 'modal-businessName'}, 'Business name'),
+            e('input', {
+              type: 'text',
+              id: 'modal-businessName',
+              name: 'businessName',
+              placeholder: 'Your business name',
+              required: true,
+              value: formData.businessName,
+              onChange: handleChange,
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #ccc'}
+            }),
+            e('label', {htmlFor: 'modal-logo'}, 'Logo (.jpg or .png) - Enter link or base64 string'),
+            e('textarea', {
+              id: 'modal-logo',
+              name: 'logo',
+              placeholder: 'Paste image URL or base64-encoded data',
+              rows: 2,
+              value: formData.logo,
+              onChange: handleChange,
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #ccc', resize: 'vertical'}
+            }),
+            e('label', {htmlFor: 'modal-colorChoice'}, 'Colors'),
+            e('input', {
+              type: 'text',
+              id: 'modal-colorChoice',
+              name: 'colorChoice',
+              placeholder: 'Your preferred color scheme',
+              value: formData.colorChoice,
+              onChange: handleChange,
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #ccc'}
+            }),
+            e('label', {htmlFor: 'modal-changes'}, 'Changes'),
+            e('textarea', {
+              id: 'modal-changes',
+              name: 'changes',
+              placeholder: 'Describe the changes you want',
+              rows: 4,
+              required: true,
+              value: formData.changes,
+              onChange: handleChange,
+              style: {padding: '0.7rem 1rem', fontSize: '1rem', borderRadius: 8, border: '1.5px solid #ccc', resize: 'vertical'}
+            }),
+            e('button', {
+              type: 'submit',
+              disabled: submitting,
+              style: {
+                marginTop: 8,
+                backgroundColor: '#2a1a72',
+                color: '#fff',
+                padding: '0.9rem 2rem',
+                fontWeight: '700',
+                borderRadius: 30,
+                border: 'none',
+                cursor: submitting ? 'wait' : 'pointer',
+                fontSize: '1.1rem',
+                boxShadow: '0 5px 15px rgb(249 168 37 / 0.6)',
+                transition: 'background-color 0.3s ease'
+              },
+              onMouseOver: e => {
+                if (!submitting) e.currentTarget.style.backgroundColor = '#3d2c8d';
+              },
+              onMouseOut: e => {
+                if (!submitting) e.currentTarget.style.backgroundColor = '#2a1a72';
+              }
+            }, submitting ? 'Sending...' : 'Submit'),
+            responseMsg && e('p', {
+              role: 'alert',
+              style: {color: '#228544', marginTop: 12, fontWeight: '600', userSelect: 'text', whiteSpace: 'pre-wrap'}
+            }, responseMsg)
+          )
+        )
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById('exit-modal-root')).render(e(ExitIntentModal));
+  })();
+</script>
+</body>
+</html>
